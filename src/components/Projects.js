@@ -55,7 +55,7 @@ function Projects() {
         <ProjectCard>
           <ProjectTitle>Weather App</ProjectTitle>
           <p>Python Project with AI Features</p>
-          <ProjectLink href="https://github.com/srisuriya13022006/green-horizon.git" target="_blank">View on GitHub</ProjectLink>
+          <ProjectLink href="https://github.com/srisuriya13022006/weather-app" target="_blank">View on GitHub</ProjectLink>
         </ProjectCard>
       </ProjectsList>
     </ProjectsSection>
