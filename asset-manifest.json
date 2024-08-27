@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/portfo/static/css/main.905466b8.css",
+    "main.js": "/portfo/static/js/main.c18ca142.js",
+    "static/media/mixkit-keyboard-typing-1386.wav": "/portfo/static/media/mixkit-keyboard-typing-1386.9a5da19e134eff090657.wav",
+    "static/media/hi.jpg": "/portfo/static/media/hi.4167e7605684573049dd.jpg",
+    "static/media/background.png": "/portfo/static/media/background.8629e73236b8cd89f191.png",
+    "static/media/javasc.jpeg": "/portfo/static/media/javasc.e70258509a2082280969.jpeg",
+    "static/media/php.jpeg": "/portfo/static/media/php.dfc81b5572bbddfa0b34.jpeg",
+    "static/media/uiux.jpeg": "/portfo/static/media/uiux.4f73be2b59dd8d7b8a92.jpeg",
+    "index.html": "/portfo/index.html",
+    "main.905466b8.css.map": "/portfo/static/css/main.905466b8.css.map",
+    "main.c18ca142.js.map": "/portfo/static/js/main.c18ca142.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.905466b8.css",
+    "static/js/main.c18ca142.js"
+  ]
+}
