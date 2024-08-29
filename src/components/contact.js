@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useSpring, animated } from '@react-spring/web';
+import emailjs from '@emailjs/browser';
 
-// Key  frames for typing and blinking effects
+// Keyframes for typing and blinking effects
 const typing = keyframes`
   from { width: 0; }
   to { width: 100%; }
@@ -95,12 +96,7 @@ const TextArea = styled.textarea`
 `;
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
+  const form = useRef();
   const [submitted, setSubmitted] = useState(false);
 
   // Spring animation for the button
@@ -112,46 +108,47 @@ const Contact = () => {
     config: { tension: 200, friction: 5 },
   });
 
-  // Handle form input changes
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   // Handle form submission
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    // Logic for form submission here, such as sending data to an API
-    console.log(formData);
-    setSubmitted(true);
+    
+    emailjs.sendForm(
+      'service_t723lqc', // Your service ID
+      'template_yxoqhwr', // Your template ID
+      form.current,
+      'MStESyQO7vmzlNNpK' // Your public key
+    ).then(
+      (result) => {
+        console.log('Email successfully sent!', result.text);
+        setSubmitted(true);
+      },
+      (error) => {
+        console.log('Failed to send email:', error.text);
+      }
+    );
   };
 
   return (
     <ContactContainer id="contact">
       {/* Typing effect text */}
-      <TypingText>CONTACT ME!!.</TypingText>
+      <TypingText>CONTACT ME!!</TypingText>
       {/* Contact form */}
-      <Form onSubmit={handleSubmit}>
+      <Form ref={form} onSubmit={sendEmail}>
         <Input
           type="text"
-          name="name"
+          name="user_name"
           placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
           required
         />
         <Input
           type="email"
-          name="email"
+          name="user_email"
           placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
           required
         />
         <TextArea
           name="message"
           placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
           rows="5"
           required
         />
